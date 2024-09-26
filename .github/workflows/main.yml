@@ -1,4 +1,5 @@
 name: Fetch Static Secrets example
+
 'on': push
 
 jobs:
@@ -7,27 +8,27 @@ jobs:
     permissions:
       id-token: write
       contents: read
-
     steps:
-      - name: Fetch static secrets from Akeyless
-        uses: akeyless-community/akeyless-github-action@v1.0.1
-        id: fetch-secrets
-        with:
-          access-id: ${{ secrets.ACCESS_ID }}
-          access-type: jwt
-          static-secrets: |
-            - name: "/S1"
-              output-name: "my_first_secret"
-              key: "imp"
-            - name: "/S1"
-              output-name: "my_second_secret"
-      - name: Use Akeyless secret
-        run: |
-            echo "Step Outputs"
-            echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
-            echo "my_second_secret: ${{ steps.fetch-secrets.outputs.my_second_secret }}" >> secrets.txt
-            
-            
-            echo "Environment Variables"
-            echo "my_first_secret: ${{ env.my_first_secret }}" >> secrets.txt
-            echo "my_second_secret: ${{ env.my_second_secret }}" >> secrets.txt
+
+    - name: Fetch static secrets from Akeyless
+      uses: akeyless-community/akeyless-github-action@v1.0.1
+      id: fetch-secrets
+      with:
+        access-id: '${{ secrets.ACCESS_ID }}'
+        access-type: jwt
+        export-secrets-to-outputs: true
+        export-secrets-to-environment: true
+        static-secrets: |
+          - name: "/S1"
+            output-name: "my_first_secret"
+  
+    - name: Use Akeyless secret (environment variable)
+      env:
+        SECRET: ${{ env.my_first_secret }}
+      run: |
+        # Use the secret securely within this step
+        echo "Doing something with $SECRET"
+     
+    - name: Use Akeyless secret (step output)
+      run: |
+        # Use the secret securely within this step
