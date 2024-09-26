@@ -16,7 +16,7 @@ jobs:
             - name: "/path/to/secret"
               output-name: "my_first_secret"
               key: "imp"
-            - name: "/path/to/another/secret"
+            - name: "/S1"
               output-name: "my_second_secret"
       - name: Use Akeyless secret
         run: |
