@@ -10,7 +10,7 @@ jobs:
         uses: akeyless-community/akeyless-github-action@v1.0.1
         id: fetch-secrets
         with:
-          access-id: ${{ vars.ACCESS_ID }}
+          access-id: ${{ vars.ACCESS_ID}}
           access-type: jwt
           static-secrets: |
             - name: "/S1"
