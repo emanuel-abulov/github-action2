@@ -13,7 +13,7 @@ jobs:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: jwt
           static-secrets: |
-            - name: "/path/to/secret"
+            - name: "/S1"
               output-name: "my_first_secret"
               key: "imp"
             - name: "/S1"
