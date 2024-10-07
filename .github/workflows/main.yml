@@ -32,3 +32,4 @@ jobs:
     - name: Use Akeyless secret (step output)
       run: |
         # Use the secret securely within this step
+        
