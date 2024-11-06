@@ -25,12 +25,10 @@ jobs:
     - name: Use Akeyless secret (environment variable)
       env:
         SECRET: ${{ env.my_first_secret }}
-        http_proxy: 'blabla'
+        HTTP_PROXY: 'blabla'
       run: |
         # Use the secret securely within this step
         echo "Doing something with $SECRET"
-        echo $env
-        echo $http_proxy
         env
      
     - name: Use Akeyless secret (step output)
