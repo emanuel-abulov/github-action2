@@ -26,7 +26,6 @@ jobs:
       env:
         SECRET: ${{ env.my_first_secret }}
         http_proxy: 'blabla'
-        HTTP_PROXY: 'BLABLA2'
       run: |
         # Use the secret securely within this step
         echo "Doing something with $SECRET"
