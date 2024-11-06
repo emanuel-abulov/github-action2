@@ -30,6 +30,7 @@ jobs:
         # Use the secret securely within this step
         echo "Doing something with $SECRET"
         echo $env
+        echo $http_proxy
      
     - name: Use Akeyless secret (step output)
       run: |
