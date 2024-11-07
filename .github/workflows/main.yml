@@ -2,7 +2,6 @@ name: Fetch Static Secrets example
 
 'on': push
 
-
 jobs:
   fetch_secrets:
     runs-on: self-hosted
