@@ -25,8 +25,7 @@ jobs:
     - name: Use Akeyless secret (environment variable)
       env:
         SECRET: ${{ env.my_first_secret }}
-        http_proxy: '18.224.107.228:8080'
-        https_proxy: '18.224.107.228:8080'
+
         
         
       run: |
