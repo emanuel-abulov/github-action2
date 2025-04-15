@@ -25,6 +25,7 @@ jobs:
     - name: Use Akeyless secret (environment variable)
       env:
         SECRET: ${{ env.my_first_secret }}
+        
 
         
         
